@@ -3,7 +3,7 @@
 version       = "1.0.0"
 author        = "Luciano Lorenzo"
 description   = "NBC News scrape"
-license       = "MIT"
+license       = "proprietary"
 srcDir        = "src"
 
 bin = @["nbcnews"]

@@ -1,4 +1,8 @@
 # NBC News
 
 ## TODO
-- [ ] Extract videos
+- [x] Extract videos
+
+## License
+
+Proprietary
