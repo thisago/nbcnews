@@ -24,8 +24,7 @@ type
   GroupedPosts = Table[string, seq[NbcPost]]
 
   NbcPostKind* = enum
-    pkArticle,
-    pkVideo
+    pkArticle, pkVideo
   NbcPost* = ref object
     image*: NbcArticleImage
     topic*: NbcArticleTopic
