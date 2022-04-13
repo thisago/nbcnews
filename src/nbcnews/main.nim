@@ -29,14 +29,14 @@ type
     image*: NbcArticleImage
     topic*: NbcArticleTopic
     url*: string
-    headline*: string
     datePublished*, dateCreated*, dateModified*: string ## TODO: parse date
+    headline*: string
     case kind: NbcPostKind
     of pkArticle:
+      subhead*: string
       authors: seq[NbcArticleAuthor]
       breakingNews*: bool
       related: seq[NbcPost]
-      subhead*: string
     of pkVideo:
       captions: NbcVideoCaption
       dateBroadcast*: string
