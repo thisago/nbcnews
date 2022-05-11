@@ -16,7 +16,7 @@ proc getNextData(html: XmlNode): JsonNode =
   parseJson html.findAll("script", {"id": "__NEXT_DATA__"}).text
 
 type
-  NbcHome* = ref object
+  NbcPage* = ref object
     highlighted*: seq[NbcPost]
     byCategory*: GroupedPosts ## Example: politics
     byGroup*: GroupedPosts ## Example: top stories
@@ -215,7 +215,7 @@ proc extractPost(node: JsonNode): NbcPost =
     if not relatedArticle.isNil:
       result.related.add relatedArticle
 
-proc getNbcPage*(url = "https://www.nbcnews.com/"): Future[NbcHome] {.async.} =
+proc getNbcPage*(url = "https://www.nbcnews.com/"): Future[NbcPage] {.async.} =
   ## Extracts the main page of NBC NEWS
   ## 
   ## Works with:
