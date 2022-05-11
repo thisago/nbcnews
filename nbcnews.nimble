@@ -4,10 +4,13 @@ version       = "1.0.1"
 author        = "Luciano Lorenzo"
 description   = "NBC News scrape"
 license       = "proprietary"
+installExt    = @["nim"]
 srcDir        = "src"
 
 bin = @["nbcnews"]
 binDir = "build"
+
+
 
 # Dependencies
 
