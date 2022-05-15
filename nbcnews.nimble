@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.0.2"
+version       = "1.0.1"
 author        = "Luciano Lorenzo"
 description   = "NBC News scrape"
 license       = "proprietary"
@@ -9,8 +9,6 @@ srcDir        = "src"
 
 bin = @["nbcnews"]
 binDir = "build"
-
-
 
 # Dependencies
 
