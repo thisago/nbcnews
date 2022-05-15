@@ -7,7 +7,9 @@ when isMainModule:
   from std/json import `$`
 
   proc cli(url: string) =
-    echo (waitFor getNbcPage(url)).toJson
+    var opts = initToJsonOptions()
+    opts.enumMode = EnumMode.joptEnumString
+    echo (waitFor getNbcPage(url)).toJson opts
     
   import cligen
   dispatch cli
