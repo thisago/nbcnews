@@ -31,7 +31,7 @@ type
     url*: string
     datePublished*, dateCreated*, dateModified*: string ## TODO: parse date
     headline*: string
-    case kind: NbcPostKind
+    case kind*: NbcPostKind
     of pkArticle:
       subhead*: string
       authors: seq[NbcArticleAuthor]
