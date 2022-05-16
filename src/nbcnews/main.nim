@@ -103,10 +103,11 @@ proc extractArticle(node: JsonNode): NbcPost =
       author.url = person{"url", "primary"}.getStr
       author.image = person{"primaryImage", "url", "primary"}.getStr
 
-      var jobs: seq[string]
-      for job in person{"jobTitle"}.items:
-        jobs.add job.getStr
-      author.job = jobs.join ", "
+      if person.hasKey "jobTitle":
+        var jobs: seq[string]
+        for job in person{"jobTitle"}:
+          jobs.add job.getStr
+        author.job = jobs.join ", "
 
       result.authors.add author
       
@@ -193,7 +194,6 @@ proc extractVideo(node: JsonNode): NbcPost =
       result.captions.smptett = closedCaptioning{"smptett"}.getStr
       result.captions.srt = closedCaptioning{"srt"}.getStr
       result.captions.webvtt = closedCaptioning{"webvtt"}.getStr
-
 
 func addGrouped(group: var GroupedPosts; name: string; post: NbcPost) =
   var groupName = name.strip

@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.0.2 (2022/05/16)
+
+- Fixed out out bounds error
+
+---
+
 ## Version 1.0.1 (2022/05/11)
 
 - Fixed nbc extracted data type
