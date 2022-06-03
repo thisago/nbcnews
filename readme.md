@@ -1,9 +1,11 @@
 # NBC News
 
+NBC News scraper
+
 ## TODO
 - [x] Extract videos
 - [ ] Add tests
 
 ## License
 
-Proprietary
+GPL-3
