@@ -1,9 +1,9 @@
 # Package
 
 version       = "1.0.2"
-author        = "Luciano Lorenzo"
+author        = "Thiago Navarro"
 description   = "NBC News scrape"
-license       = "proprietary"
+license       = "gpl-3-only"
 installExt    = @["nim"]
 srcDir        = "src"
 
