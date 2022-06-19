@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.0.2"
+version       = "1.0.3"
 author        = "Thiago Navarro"
 description   = "NBC News scraper"
 license       = "gpl-3-only"

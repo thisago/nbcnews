@@ -210,13 +210,14 @@ proc extractPost(node: JsonNode): NbcPost =
     result =  extractVideo node
   else:
     return
-  for related in node{"related"}:
-    let relatedArticle = extractArticle related
-    if not relatedArticle.isNil:
-      result.related.add relatedArticle
+  if not node{"related"}.isNil:
+    for related in node{"related"}:
+      let relatedPost = extractPost related
+      if not relatedPost.isNil:
+        result.related.add relatedPost
 
 proc getNbcPage*(url = "https://www.nbcnews.com/"): Future[NbcPage] {.async.} =
-  ## Extracts the main page of NBC NEWS
+  ## Extracts the main page of NBC news
   ## 
   ## Works with:
   ## - https://www.nbcnews.com
@@ -256,6 +257,6 @@ proc getNbcPage*(url = "https://www.nbcnews.com/"): Future[NbcPage] {.async.} =
 
 when isMainModule:
   from std/json import pretty
-  from std/jsonutils import toJson
+  import std/jsonutils
   # echo (waitFor getNbcPage("https://www.nbcnews.com/news/world/mysterious-putin-ally-russian-gatsby-moves-billions-rcna23603")).toJson.pretty
   echo (waitFor getNbcPage("https://www.nbcnews.com")).toJson.pretty

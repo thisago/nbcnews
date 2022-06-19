@@ -1,8 +1,15 @@
 # Changelog
 
+## Version 1.0.3 (2022/06/19)
+
+- Fixed Crash when extract some kinds of related posts
+- Fixed JSON pretty formatting when running `main.nim` file for tests
+
+---
+
 ## Version 1.0.2 (2022/05/16)
 
-- Fixed out out bounds error
+- Fixed out bounds error
 
 ---
 
