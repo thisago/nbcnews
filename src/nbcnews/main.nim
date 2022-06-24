@@ -151,18 +151,20 @@ proc extractVideo(node: JsonNode): NbcPost =
     const
       secInMin = 60
       secInHour = secInMin * 60
-    let str = item{"duration"}.getStr[2..^1]
-    var strNum: string
-    for ch in str:
-      if ch in Digits:
-        strNum.add ch
-      else:
-        let num = parseInt strNum
-        case ch:
-        of 'H': result.duration += num * secInHour
-        of 'M': result.duration += num * secInMin
-        of 'S': result.duration += num
-        else: discard
+    let dur = item{"duration"}.getStr
+    if dur.len > 0:
+      let str = dur[2..^1]
+      var strNum: string
+      for ch in str:
+        if ch in Digits:
+          strNum.add ch
+        else:
+          let num = parseInt strNum
+          case ch:
+          of 'H': result.duration += num * secInHour
+          of 'M': result.duration += num * secInMin
+          of 'S': result.duration += num
+          else: discard
 
   block image:
     let teaseImage = computedValues{"teaseImage"}
@@ -206,15 +208,15 @@ proc extractPost(node: JsonNode): NbcPost =
   case node{"type"}.getStr:
   of "article":
     result =  extractArticle node
+    if not node{"related"}.isNil:
+      for related in node{"related"}:
+        let relatedPost = extractPost related
+        if not relatedPost.isNil:
+          result.related.add relatedPost
   of "video":
     result =  extractVideo node
   else:
     return
-  if not node{"related"}.isNil:
-    for related in node{"related"}:
-      let relatedPost = extractPost related
-      if not relatedPost.isNil:
-        result.related.add relatedPost
 
 proc getNbcPage*(url = "https://www.nbcnews.com/"): Future[NbcPage] {.async.} =
   ## Extracts the main page of NBC news

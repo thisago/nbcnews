@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.0.4 (2022/06/24)
+
+- Fixed extracting
+
+---
+
 ## Version 1.0.3 (2022/06/19)
 
 - Fixed Crash when extract some kinds of related posts
