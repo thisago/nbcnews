@@ -3,7 +3,7 @@
 version       = "1.0.4"
 author        = "Thiago Navarro"
 description   = "NBC News scraper"
-license       = "gpl-3-only"
+license       = "gpl-3.0-only"
 installExt    = @["nim"]
 srcDir        = "src"
 
