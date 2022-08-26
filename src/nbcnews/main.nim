@@ -1,19 +1,20 @@
 import asyncdispatch
 from std/json import parseJson, `{}`, getStr, JsonNode, items, hasKey, JNull,
                       getBool, getInt, getFloat 
-from std/xmltree import XmlNode
-from std/htmlparser import parseHtml
 from std/httpclient import newAsyncHttpClient, newHttpHeaders, getContent, close
 from std/tables import Table, `[]`, `[]=`, hasKey
 from std/strutils import strip, join, Digits, parseInt
 
-from pkg/scraper import findAll, text
 from pkg/useragent import mozilla
+from pkg/util/forStr import between
 
 const debugging = false
 
-proc getNextData(html: XmlNode): JsonNode =
-  parseJson html.findAll("script", {"id": "__NEXT_DATA__"}).text
+when debugging:
+  from std/json import `%*`, `%`, `$`
+
+proc getNextData(html: string): JsonNode =
+  parseJson html.between("__NEXT_DATA__\" type=\"application/json\">", "</script>")
 
 type
   NbcPage* = ref object
@@ -232,7 +233,7 @@ proc getNbcPage*(url = "https://www.nbcnews.com/"): Future[NbcPage] {.async.} =
     client = newAsyncHttpClient(headers = newHttpHeaders({
       "user-agent": mozilla
     }))
-    html = parseHtml await client.getContent url
+    html = await client.getContent url
     data = html.getNextData
     # data = jsonData.parseJson
 

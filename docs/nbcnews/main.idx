@@ -1,0 +1,11 @@
+NbcPage	nbcnews/main.html#NbcPage	main: NbcPage	
+pkArticle	nbcnews/main.html#pkArticle	NbcPostKind.pkArticle	
+pkVideo	nbcnews/main.html#pkVideo	NbcPostKind.pkVideo	
+NbcPostKind	nbcnews/main.html#NbcPostKind	main: NbcPostKind	
+NbcPost	nbcnews/main.html#NbcPost	main: NbcPost	
+NbcVideoSource	nbcnews/main.html#NbcVideoSource	main: NbcVideoSource	
+NbcVideoCaption	nbcnews/main.html#NbcVideoCaption	main: NbcVideoCaption	
+NbcArticleAuthor	nbcnews/main.html#NbcArticleAuthor	main: NbcArticleAuthor	
+NbcArticleTopic	nbcnews/main.html#NbcArticleTopic	main: NbcArticleTopic	
+NbcArticleImage	nbcnews/main.html#NbcArticleImage	main: NbcArticleImage	
+getNbcPage	nbcnews/main.html#getNbcPage,string	main: getNbcPage(url = &quot;https://www.nbcnews.com/&quot;): Future[NbcPage]	

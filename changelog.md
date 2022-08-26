@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 1.0.5 (Aug 26, 2022)
+
+- Replaced JSON getting from `htmlparser.parseHtml` to `util.forStr.between`
+- Added missing import in `debugging` mode
+- Added docs
+
+---
+
 ## Version 1.0.4 (2022/06/24)
 
 - Fixed extracting
