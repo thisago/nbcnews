@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.0.6 (Sep 12, 2022)
+
+- Fixed submodule name from `main` to `extractor`
+
+---
+
 ## Version 1.0.5 (Aug 26, 2022)
 
 - Replaced JSON getting from `htmlparser.parseHtml` to `util.forStr.between`

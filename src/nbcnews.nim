@@ -1,5 +1,5 @@
-import nbcnews/main
-export main
+import nbcnews/extractor
+export extractor
 
 when isMainModule:
   from std/asyncdispatch import waitFor

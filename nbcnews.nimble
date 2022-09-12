@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.0.5"
+version       = "1.0.6"
 author        = "Thiago Navarro"
 description   = "NBC News scraper"
 license       = "gpl-3.0-only"
@@ -13,7 +13,7 @@ binDir = "build"
 # Dependencies
 
 requires "nim >= 1.6.4"
-requires "https://gitlab.com/lurlo/useragent"
+requires "https://github.com/thisago/useragent"
 requires "util"
 
 # CLI
